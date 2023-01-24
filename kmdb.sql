@@ -549,4 +549,9 @@ GROUP BY movies.movie_title;
 
 
 -- The SQL statement for the cast output
--- TODO!
+SELECT movies.movie_title, actors.actor_name, characters.character_name
+FROM movie_casts 
+  INNER JOIN movies ON movies.id = movie_casts.movie_id
+  INNER JOIN actors ON actors.id = movie_casts.actor_id
+  INNER JOIN characters ON characters.id = movie_casts.character_id
+;
