@@ -370,6 +370,164 @@ VALUES (
   "3"
 );
 
+INSERT INTO movie_casts (
+  movie_id,
+  studio_id,
+  actor_id,
+  character_id
+)
+VALUES (
+  "1",
+  "1",
+  "4",
+  "4"
+);
+
+INSERT INTO movie_casts (
+  movie_id,
+  studio_id,
+  actor_id,
+  character_id
+)
+VALUES (
+  "1",
+  "1",
+  "5",
+  "5"
+);
+
+INSERT INTO movie_casts (
+  movie_id,
+  studio_id,
+  actor_id,
+  character_id
+)
+VALUES (
+  "2",
+  "1",
+  "1",
+  "1"
+);
+
+INSERT INTO movie_casts (
+  movie_id,
+  studio_id,
+  actor_id,
+  character_id
+)
+VALUES (
+  "2",
+  "1",
+  "6",
+  "6"
+);
+
+INSERT INTO movie_casts (
+  movie_id,
+  studio_id,
+  actor_id,
+  character_id
+)
+VALUES (
+  "2",
+  "1",
+  "7",
+  "7"
+);
+
+INSERT INTO movie_casts (
+  movie_id,
+  studio_id,
+  actor_id,
+  character_id
+)
+VALUES (
+  "2",
+  "1",
+  "2",
+  "2"
+);
+
+INSERT INTO movie_casts (
+  movie_id,
+  studio_id,
+  actor_id,
+  character_id
+)
+VALUES (
+  "2",
+  "1",
+  "8",
+  "4"
+);
+
+INSERT INTO movie_casts (
+  movie_id,
+  studio_id,
+  actor_id,
+  character_id
+)
+VALUES (
+  "3",
+  "1",
+  "1",
+  "1"
+);
+
+INSERT INTO movie_casts (
+  movie_id,
+  studio_id,
+  actor_id,
+  character_id
+)
+VALUES (
+  "3",
+  "1",
+  "5",
+  "5"
+);
+
+INSERT INTO movie_casts (
+  movie_id,
+  studio_id,
+  actor_id,
+  character_id
+)
+VALUES (
+  "3",
+  "1",
+  "9",
+  "8"
+);
+
+INSERT INTO movie_casts (
+  movie_id,
+  studio_id,
+  actor_id,
+  character_id
+)
+VALUES (
+  "3",
+  "1",
+  "10",
+  "9"
+);
+
+INSERT INTO movie_casts (
+  movie_id,
+  studio_id,
+  actor_id,
+  character_id
+)
+VALUES (
+  "3",
+  "1",
+  "11",
+  "10"
+);
+
+
+
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -377,7 +535,11 @@ VALUES (
 .print ""
 
 -- The SQL statement for the movies output
--- TODO!
+SELECT movies.movie_title, movies.year_released, movies.MPAA_rating, studios.studio_name
+FROM movie_casts 
+  INNER JOIN movies ON movies.id = movie_casts.movie_id
+  INNER JOIN studios ON studios.id = movie_casts.studio_id
+GROUP BY movies.movie_title;
 
 -- Prints a header for the cast output
 .print ""
