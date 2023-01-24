@@ -330,9 +330,45 @@ VALUES (
   "Anne Hathaway"
 );
 
--- Movie Casting
+-- Movie Casts
+INSERT INTO movie_casts (
+  movie_id,
+  studio_id,
+  actor_id,
+  character_id
+)
+VALUES (
+  "1",
+  "1",
+  "1",
+  "1"
+);
 
+INSERT INTO movie_casts (
+  movie_id,
+  studio_id,
+  actor_id,
+  character_id
+)
+VALUES (
+  "1",
+  "1",
+  "2",
+  "2"
+);
 
+INSERT INTO movie_casts (
+  movie_id,
+  studio_id,
+  actor_id,
+  character_id
+)
+VALUES (
+  "1",
+  "1",
+  "3",
+  "3"
+);
 
 
 -- Prints a header for the movies output
