@@ -104,7 +104,7 @@ DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS studios;
 DROP TABLE IF EXISTS characters;
 DROP TABLE IF EXISTS actors;
-DROP TABLE IF EXISTS movie_casts;
+DROP TABLE IF EXISTS movie_projects;
 
 -- Create new tables, according to your domain model
 CREATE TABLE movies (
@@ -129,7 +129,7 @@ CREATE TABLE actors (
   actor_name TEXT
 );
 
-CREATE TABLE movie_casts (
+CREATE TABLE movie_projects (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   movie_id INTEGER,
   studio_id INTEGER,
@@ -330,8 +330,8 @@ VALUES (
   "Anne Hathaway"
 );
 
--- Movie Casts
-INSERT INTO movie_casts (
+-- Movie Projects
+INSERT INTO movie_projects (
   movie_id,
   studio_id,
   actor_id,
@@ -344,7 +344,7 @@ VALUES (
   "1"
 );
 
-INSERT INTO movie_casts (
+INSERT INTO movie_projects (
   movie_id,
   studio_id,
   actor_id,
@@ -357,7 +357,7 @@ VALUES (
   "2"
 );
 
-INSERT INTO movie_casts (
+INSERT INTO movie_projects (
   movie_id,
   studio_id,
   actor_id,
@@ -370,7 +370,7 @@ VALUES (
   "3"
 );
 
-INSERT INTO movie_casts (
+INSERT INTO movie_projects (
   movie_id,
   studio_id,
   actor_id,
@@ -383,7 +383,7 @@ VALUES (
   "4"
 );
 
-INSERT INTO movie_casts (
+INSERT INTO movie_projects (
   movie_id,
   studio_id,
   actor_id,
@@ -396,7 +396,7 @@ VALUES (
   "5"
 );
 
-INSERT INTO movie_casts (
+INSERT INTO movie_projects (
   movie_id,
   studio_id,
   actor_id,
@@ -409,7 +409,7 @@ VALUES (
   "1"
 );
 
-INSERT INTO movie_casts (
+INSERT INTO movie_projects (
   movie_id,
   studio_id,
   actor_id,
@@ -422,7 +422,7 @@ VALUES (
   "6"
 );
 
-INSERT INTO movie_casts (
+INSERT INTO movie_projects (
   movie_id,
   studio_id,
   actor_id,
@@ -435,7 +435,7 @@ VALUES (
   "7"
 );
 
-INSERT INTO movie_casts (
+INSERT INTO movie_projects (
   movie_id,
   studio_id,
   actor_id,
@@ -448,7 +448,7 @@ VALUES (
   "2"
 );
 
-INSERT INTO movie_casts (
+INSERT INTO movie_projects (
   movie_id,
   studio_id,
   actor_id,
@@ -461,7 +461,7 @@ VALUES (
   "4"
 );
 
-INSERT INTO movie_casts (
+INSERT INTO movie_projects (
   movie_id,
   studio_id,
   actor_id,
@@ -474,7 +474,7 @@ VALUES (
   "1"
 );
 
-INSERT INTO movie_casts (
+INSERT INTO movie_projects (
   movie_id,
   studio_id,
   actor_id,
@@ -487,7 +487,7 @@ VALUES (
   "5"
 );
 
-INSERT INTO movie_casts (
+INSERT INTO movie_projects (
   movie_id,
   studio_id,
   actor_id,
@@ -500,7 +500,7 @@ VALUES (
   "8"
 );
 
-INSERT INTO movie_casts (
+INSERT INTO movie_projects (
   movie_id,
   studio_id,
   actor_id,
@@ -513,7 +513,7 @@ VALUES (
   "9"
 );
 
-INSERT INTO movie_casts (
+INSERT INTO movie_projects (
   movie_id,
   studio_id,
   actor_id,
@@ -536,9 +536,9 @@ VALUES (
 
 -- The SQL statement for the movies output
 SELECT movies.movie_title, movies.year_released, movies.MPAA_rating, studios.studio_name
-FROM movie_casts 
-  INNER JOIN movies ON movies.id = movie_casts.movie_id
-  INNER JOIN studios ON studios.id = movie_casts.studio_id
+FROM movie_projects 
+  INNER JOIN movies ON movies.id = movie_projects.movie_id
+  INNER JOIN studios ON studios.id = movie_projects.studio_id
 GROUP BY movies.movie_title;
 
 -- Prints a header for the cast output
@@ -550,8 +550,8 @@ GROUP BY movies.movie_title;
 
 -- The SQL statement for the cast output
 SELECT movies.movie_title, actors.actor_name, characters.character_name
-FROM movie_casts 
-  INNER JOIN movies ON movies.id = movie_casts.movie_id
-  INNER JOIN actors ON actors.id = movie_casts.actor_id
-  INNER JOIN characters ON characters.id = movie_casts.character_id
+FROM movie_projects 
+  INNER JOIN movies ON movies.id = movie_projects.movie_id
+  INNER JOIN actors ON actors.id = movie_projects.actor_id
+  INNER JOIN characters ON characters.id = movie_projects.character_id
 ;
