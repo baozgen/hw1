@@ -100,14 +100,240 @@
 .headers off
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
--- TODO!
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS studios;
+DROP TABLE IF EXISTS characters;
+DROP TABLE IF EXISTS actors;
+DROP TABLE IF EXISTS movie_casts;
 
 -- Create new tables, according to your domain model
--- TODO!
+CREATE TABLE movies (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  movie_title TEXT,
+  year_released TEXT,
+  MPAA_rating TEXT
+);
+
+CREATE TABLE studios (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  studio_name TEXT
+);
+
+CREATE TABLE characters (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  character_name TEXT
+);
+
+CREATE TABLE actors (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  actor_name TEXT
+);
+
+CREATE TABLE movie_casts (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  movie_id INTEGER,
+  studio_id INTEGER,
+  actor_id INTEGER,
+  character_id INTEGER
+);
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
--- TODO!
+-- Movies
+INSERT INTO movies (
+  movie_title,
+  year_released,
+  MPAA_rating
+)
+VALUES (
+  "Batman Begins",
+  "2005",
+  "PG-13"
+);
+
+INSERT INTO movies (
+  movie_title,
+  year_released,
+  MPAA_rating
+)
+VALUES (
+  "The Dark Knight",
+  "2008",
+  "PG-13"
+);
+
+INSERT INTO movies (
+  movie_title,
+  year_released,
+  MPAA_rating
+)
+VALUES (
+  "The Dark Knight Rises",
+  "2012",
+  "PG-13"
+);
+
+-- Studios
+INSERT INTO studios (
+  studio_name
+)
+VALUES (
+  "Warner Bros."
+);
+
+-- Characters
+INSERT INTO characters (
+  character_name
+)
+VALUES (
+  "Bruce Wayne"
+);
+
+INSERT INTO characters (
+  character_name
+)
+VALUES (
+  "Alfred"
+);
+
+INSERT INTO characters (
+  character_name
+)
+VALUES (
+  "Ra's Al Ghul"
+);
+
+INSERT INTO characters (
+  character_name
+)
+VALUES (
+  "Rachel Dawes"
+);
+
+INSERT INTO characters (
+  character_name
+)
+VALUES (
+  "Commissioner Gordon"
+);
+
+INSERT INTO characters (
+  character_name
+)
+VALUES (
+  "Joker"
+);
+
+INSERT INTO characters (
+  character_name
+)
+VALUES (
+  "Harvey Dent"
+);
+
+INSERT INTO characters (
+  character_name
+)
+VALUES (
+  "Bane"
+);
+
+INSERT INTO characters (
+  character_name
+)
+VALUES (
+  "John Blake"
+);
+
+INSERT INTO characters (
+  character_name
+)
+VALUES (
+  "Selina Kyle"
+);
+
+-- Actors
+INSERT INTO actors (
+  actor_name
+)
+VALUES (
+  "Christian Bale"
+);
+
+INSERT INTO actors (
+  actor_name
+)
+VALUES (
+  "Michael Caine"
+);
+
+INSERT INTO actors (
+  actor_name
+)
+VALUES (
+  "Liam Neeson"
+);
+
+INSERT INTO actors (
+  actor_name
+)
+VALUES (
+  "Katie Holmes"
+);
+
+INSERT INTO actors (
+  actor_name
+)
+VALUES (
+  "Gary Oldman"
+);
+
+INSERT INTO actors (
+  actor_name
+)
+VALUES (
+  "Heath Ledger"
+);
+
+INSERT INTO actors (
+  actor_name
+)
+VALUES (
+  "Aaron Eckhart"
+);
+
+INSERT INTO actors (
+  actor_name
+)
+VALUES (
+  "Maggie Gyllenhaal"
+);
+
+INSERT INTO actors (
+  actor_name
+)
+VALUES (
+  "Tom Hardy"
+);
+
+INSERT INTO actors (
+  actor_name
+)
+VALUES (
+  "Joseph Gordon-Levitt"
+);
+
+INSERT INTO actors (
+  actor_name
+)
+VALUES (
+  "Anne Hathaway"
+);
+
+-- Movie Casting
+
+
+
 
 -- Prints a header for the movies output
 .print "Movies"
